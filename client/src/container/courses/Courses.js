@@ -4,17 +4,23 @@ import SIngleCourse from '../../component/singleCourse/SIngleCourse';
 import Spinner from '../../component/spinner/Spinner'
 import Modal from '../../component/Modal'
 import AuthInput from '../../component/input/AuthInput'
+import axios from '../../utils/axios/axios'
 
 const Courses = () => {
     const [loading, setLoading] = useState(true)
-    // const [openCoursePopUp, setOPenCoursePopUp] = useState(false)
+    const [courses, setCourses] = useState([])
+    const [buttonSpinner, setButtonSpinner] = useState(false)
     const [courseTitle, setCourseTitle] = useState('')
     const [showModal, setShowModal] = useState(false)
 
         useEffect(() => {
-            setTimeout(() => {
+            axios.get('/course').then(res => {
+                setCourses(res.data.data.course)
                 setLoading(false)
-            },700 )
+            }).catch(err => {
+                setLoading(false)
+                console.log(err.response)
+            })
         }, [])
 
     const inputHandler = (e) => {
@@ -31,7 +37,19 @@ const Courses = () => {
     }
 
     const addCourseHandler = () => {
-        closeModelHandler()
+        setButtonSpinner(true)
+        axios.post('/course', {title: courseTitle}).then(res => {
+            const coursesCopy = [...courses]
+            coursesCopy.push({_id: Math.random(), title: courseTitle})
+            setCourses(coursesCopy)
+            setButtonSpinner(true)
+            closeModelHandler()
+        }).catch(err => {
+            closeModelHandler()
+            setButtonSpinner(true)
+            console.log(err.response)
+        })
+        
     }
 
     return (
@@ -45,26 +63,19 @@ const Courses = () => {
                         valueof={courseTitle}
                         handler={inputHandler}
                         name='title' />
-                    <Button title='Add Course' addClass='model__button' handler={addCourseHandler} loading={loading} />
+                    <Button title='Add Course' addClass='model__button' handler={addCourseHandler} loading={buttonSpinner} />
                 </div>
             </ Modal>
 
 
             <div style={{display: 'flex', justifyContent: 'space-between', padding: '3rem 0'}}>
                 <h2 className='marginLeft-medium course__title'>Courses</h2>
-                <Button title='Add Course' addClass='marginRight-medium add__course' handler={openModelHandler} />
+                <Button title='Add New Course' addClass='marginRight-medium add__course' handler={openModelHandler} />
             </div>
             
             {loading? <div style={{marginTop: '25rem'}}><Spinner /></div> : 
             <div>
-            <SIngleCourse name='Physics 1st Part' />
-            <SIngleCourse name='Physics 2nd Part' />
-            <SIngleCourse name='Chemistry 1st Part' />
-            <SIngleCourse name='Chemistry 2nd Part' />
-            <SIngleCourse name='Biology 1st Part' />
-            <SIngleCourse name='Biology 2nd Part' />
-            <SIngleCourse name='Math 1st Part' />
-            <SIngleCourse name='Math 2nd Part' />
+                {courses.map(el => <SIngleCourse key={el._id} name={el.title} />)}
         </div>}
         </>
     );

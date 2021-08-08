@@ -1,8 +1,9 @@
 import React from 'react';
+import Spinner from '../spinner/Spinner';
 
-const Button = ({title, addClass='', handler}) => {
+const Button = ({title, addClass='', handler, loading}) => {
     return (
-            <button className={`btn ${addClass}`} onClick={handler}>{title}</button>
+            <button className={`btn ${addClass}`} onClick={handler}>{loading ? <Spinner /> : `${title}` }</button>
     );
 };
 
