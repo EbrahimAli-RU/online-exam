@@ -1,0 +1,23 @@
+:root {
+    --color-Primary: rgb(71, 138, 240);
+    --color-Primary-light: #FF3366;
+    --color-Primary-dark: rgb(12, 92, 211);
+
+    --color-primary-1: #59c555;
+    --color-primary-light-1: #7ed56f;
+    --color-primary-dark-1:  #28b485;
+
+    --color-Grey-light-1: #faf9f9;
+    --color-Grey-light-2: #f4f2f2;
+    --color-Grey-light-3: #f0eeee;
+    --color-Grey-light-4: #ccc;
+    --color-Grey-dark-1: #333;
+    --color-Grey-dark-2: #777;
+    --color-Grey-dark-3: #999;
+
+    --line: 1px solid var(--color-Grey-light-2);
+
+}
+$main-font: 'Poppins', sans-serif;
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);

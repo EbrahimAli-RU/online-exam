@@ -1,0 +1,24 @@
+@import 'utils/function';
+@import 'utils/mixin';
+@import 'utils/utiliti';
+@import 'utils/variable';
+
+//BASE
+@import 'base/reset';
+
+///////////PAGES
+@import 'pages/course';
+
+
+////////////LAYOUT
+@import 'layout/sidebar';
+@import 'layout/navigation';
+
+
+
+/////////COMPONENT
+@import 'component/authInput';
+@import 'component/modal';
+@import 'component/singleCourse';
+@import 'component/spinner/spinner';
+@import 'component/button/button';

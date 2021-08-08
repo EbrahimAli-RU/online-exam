@@ -1,0 +1,46 @@
+.auth__input {
+        margin: 1rem 0;
+    &__custom-field {
+        position: relative;
+        font-size: 1.4rem;
+        width: 100%;
+        input {
+            //background-color: black;
+            font-family: $main-font;
+            border: none;
+            border: 2px solid #ddd;
+            appearance: none;
+            border-radius: 3px;
+            outline: none;
+            font-size: 1.4rem;
+            color: var(--color-Grey-dark-2);
+            padding: 1.4rem 1.4rem;
+            width: 100%;
+            transition: border .2s ease;
+            transition-delay: .1s;
+            &:valid, &:focus {           
+                border: 2px solid var(--color-Grey-dark-2);
+            }
+            &:valid  + .auth__input__placeholder,
+            &:focus + .auth__input__placeholder {
+                background-color: $color-white;
+                top: -1.4rem;
+                font-size: 1rem;
+                color: var(--color-Grey-dark-2);
+                padding: .5rem;
+            }
+        }
+    }
+
+    &__placeholder {
+        font-size: 1.4rem;
+        position: absolute;
+        left: 1.2rem;
+        top: calc(50%);
+        transform: translateY(-50%);
+        color: #aaa;
+        transition: top .3s ease,
+                    font-size .3s ease,
+                    color .3s ease;
+    }
+}

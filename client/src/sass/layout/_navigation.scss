@@ -1,0 +1,15 @@
+.nav{
+    &__container {
+
+        padding: 2rem 3rem;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        
+        a {
+            
+            text-align: right;
+            font-weight: 400;
+            text-decoration: none;
+            color: var(--color-Grey-dark-2);
+        }
+    }
+} 

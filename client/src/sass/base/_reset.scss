@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    // min-width: 280px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--color-Grey-dark-2);
+}

@@ -1,0 +1,21 @@
+.single__course {
+    &__container {
+        width: 40%;
+        cursor: pointer;
+        display: inline-block;
+        margin: 3rem;
+        padding: 5rem 4rem;
+        border: 1px solid --color-Grey-dark-2;
+        border-radius: 3px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        transition: all .2s ease-out;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, .05);
+        }
+    }
+
+    &__title {
+        text-align: center;
+    }
+}     

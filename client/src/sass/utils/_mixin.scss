@@ -1,0 +1,22 @@
+@mixin icon-size($width) {
+    width: $width;
+}
+
+@mixin Width($width) {
+    width: $width;
+}
+
+@mixin center-element($top) {
+    position: absolute;
+    left: 50%;
+    top: $top;
+    transform: translate(-50%, -50%);
+}
+
+@mixin bgimage($img) {
+    background-image: url($img);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
